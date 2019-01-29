@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+
+
+
+
+
+{% block content %}
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Home</title>
+	<style type="text/css">
+		body {
+			background: #c0392b;
+			/* fallback for old browsers */
+			background: -webkit-linear-gradient(to right, #8e44ad, #c0392b);
+			/* Chrome 10-25, Safari 5.1-6 */
+			background: linear-gradient(to right, #8e44ad, #c0392b);
+			/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
+		}
+
+
+		/* The Modal (background) */
+		.modal {
+			display: none;
+			/* Hidden by default */
+			position: fixed;
+			/* Stay in place */
+			z-index: 1;
+			/* Sit on top */
+			padding-top: 100px;
+			/* Location of the box */
+			left: 0;
+			top: 0;
+			width: 100%;
+			/* Full width */
+			height: 100%;
+			/* Full height */
+			overflow: auto;
+			/* Enable scroll if needed */
+			background-color: rgb(0, 0, 0);
+			/* Fallback color */
+			background-color: rgba(0, 0, 0, 0.4);
+			/* Black w/ opacity */
+		}
+
+		/* Modal Content */
+		.modal-content {
+			background: #c0392b;
+			/* fallback for old browsers */
+			background: -webkit-linear-gradient(to right, #8e44ad, #c0392b);
+			/* Chrome 10-25, Safari 5.1-6 */
+			background: linear-gradient(to right, #8e44ad, #c0392b);
+			/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+			margin: 0 auto;
+			text-align: center;
+			padding: 20px;
+			border: 1px solid #888;
+			width: 80%;
+
+		}
+
+		/* The Close Button */
+		.close {
+			color: #aaaaaa;
+			float: right;
+			font-size: 28px;
+			font-weight: bold;
+		}
+
+		.close:hover,
+		.close:focus {
+			color: #000;
+			text-decoration: none;
+			cursor: pointer;
+		}
+
+
+
+
+
+		.chat-menu {
+			height: 30px;
+			width: 350px;
+			position: fixed;
+			bottom: 0px;
+			z-index: 10;
+			right: 20px;
+			transition: .5s
+		}
+
+		.chat-menu .header {
+			padding: 10px;
+			background: #C33764;
+			/* fallback for old browsers */
+			background: -webkit-linear-gradient(to right, #1D2671, #C33764);
+			/* Chrome 10-25, Safari 5.1-6 */
+			background: linear-gradient(to right, #1D2671, #C33764);
+			/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+			color: white;
+			white-space: nowrap;
+			cursor: pointer;
+			border-top-right-radius: 5px;
+			border-top-left-radius: 5px;
+			text-align: center;
+			font-size: 20px;
+			font-weight: bolder;
+			font-family: sans-serif;
+		}
+
+
+
+		.chat-menu h6 {
+			margin: 0
+		}
+
+		.chat-menu .body {
+
+			overflow: hidden;
+			color: #e3e3e3;
+			background: #C33764;
+			/* fallback for old browsers */
+			background: -webkit-linear-gradient(to right, #1D2671, #C33764);
+			/* Chrome 10-25, Safari 5.1-6 */
+			background: linear-gradient(to right, #1D2671, #C33764);
+			/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+		}
+
+
+
+		.chat-menu .body h5 {
+			margin-bottom: 20px
+		}
+
+
+		.show-cm {
+			bottom: 450px;
+		}
+
+		#my_camera {
+
+			margin: 50px auto;
+
+		}
+
+		.btn {
+			margin: 0 auto;
+			width: 100px;
+			height: 100px;
+			border-radius: 50px;
+			color: #e3e3e3;
+			background: #C33764;
+			/* fallback for old browsers */
+			background: -webkit-linear-gradient(to right, #1D2671, #C33764);
+			/* Chrome 10-25, Safari 5.1-6 */
+			background: linear-gradient(to right, #1D2671, #C33764);
+			/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+			outline: none;
+			font-weight: bolder;
+			font-family: sans-serif;
+			cursor: pointer;
+		}
+
+
+		#message h2 {
+			color: whitesmoke;
+
+			font-weight: bolder;
+			font-family: sans-serif;
+		}
+
+		a:link,
+		a:visited {
+			background: #C33764;
+			/* fallback for old browsers */
+			background: -webkit-linear-gradient(to right, #1D2671, #C33764);
+			/* Chrome 10-25, Safari 5.1-6 */
+			background: linear-gradient(to right, #1D2671, #C33764);
+			/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+			color: white;
+			padding: 14px 25px;
+			text-align: center;
+			text-decoration: none;
+			display: inline-block;
+			border-radius: 20px;
+		}
+
+
+		a:hover,
+		a:active {
+			background: #c0392b;
+			/* fallback for old browsers */
+			background: -webkit-linear-gradient(to right, #8e44ad, #c0392b);
+			/* Chrome 10-25, Safari 5.1-6 */
+			background: linear-gradient(to right, #8e44ad, #c0392b);
+			/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+		}
+	</style>
+
+</head>
+
+<body>
+
+
+	<div id="my_camera"></div>
+	<div class="btn" id="myBtn">
+		<form>
+			<input type=button class="btn btn-primary" value="Capture" onClick="take_snapshot()">
+		</form>
+	</div>
+
+
+
+	<!-- The Modal -->
+	<div id="myModal" class="modal">
+
+		<!-- Modal content -->
+		<div class="modal-content">
+			<span class="close">&times;</span>
+			<canvas id="viewport" width="320" height="240"></canvas>
+			<div id="message">
+				<h2>These songs are recommended for you...</h2>
+				<div id="mood"></div>
+
+			</div>
+		</div>
+
+	</div>
+
+
+
+	<div class="chat-menu">
+		<div class="header">
+			<h6> Try Out The Bot</h6>
+		</div>
+		<div class="body">
+			<iframe width="350" height="430" allow="microphone;" src="https://console.dialogflow.com/api-client/demo/embedded/54eceb6d-5981-4158-8d8a-ec7859be725b"></iframe>
+		</div>
+	</div>
+
+
+	<script type="text/javascript" src="https://pixlcore.com/demos/webcamjs/webcam.min.js"></script>
+	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></script>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript">
+		//chatbot section
+
+		var chat_menu = document.querySelector(".chat-menu");
+		var chat_header = document.querySelector(".chat-menu .header");
+		chat_header.onclick = function (e) {
+			if (chat_menu.classList.contains("show-cm")) {
+				chat_menu.classList.remove("show-cm");
+			} else {
+				chat_menu.classList.add("show-cm");
+			}
+		}
+		//about
+
+		function myFunction() {
+			var element = document.getElementById("about");
+			element.classList.toggle("mystyle");
+		}
+
+
+
+
+
+
+
+
+
+		//dialog
+		// Get the modal
+		var modal = document.getElementById('myModal');
+
+		// Get the button that opens the modal
+		var btn = document.getElementById("myBtn");
+
+		// Get the <span> element that closes the modal
+		var span = document.getElementsByClassName("close")[0];
+
+		// When the user clicks the button, open the modal 
+		btn.onclick = function () {
+			modal.style.display = "block";
+		}
+
+		// When the user clicks on <span> (x), close the modal
+		span.onclick = function () {
+			modal.style.display = "none";
+		}
+
+		// When the user clicks anywhere outside of the modal, close it
+		window.onclick = function (event) {
+			if (event.target == modal) {
+				modal.style.display = "none";
+			}
+		}
+
+
+		var messages = []
+
+
+		Webcam.set({
+			width: 320,
+			height: 240,
+			image_format: 'jpeg',
+			jpeg_quality: 90
+		});
+		Webcam.attach('#my_camera');
+
+		var canvas = document.getElementById('viewport'),
+			context = canvas.getContext('2d');
+
+		function take_snapshot() {
+			// take snapshot and get image data
+			Webcam.snap(function (data_uri) {
+				base_image = new Image();
+				base_image.src = data_uri;
+				base_image.onload = function () {
+					context.drawImage(base_image, 0, 0, 320, 240);
+
+					let data = canvas.toDataURL('image/jpeg');
+
+					fetch(data)
+						.then(res => res.blob())
+						.then(blobData => {
+							$.post({
+									url: "https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect?returnFaceId=true&returnFaceLandmarks=false&returnFaceAttributes=emotion",
+									contentType: "application/octet-stream",
+									headers: {
+										'Ocp-Apim-Subscription-Key': '4e62d6b195e342769c52f11309e6d71d'
+									},
+									processData: false,
+									data: blobData
+								})
+								.done(function (data) {
+
+									var sad = ["RBumgq5yVrA", "bo_efYhYU2A", "RgKAFK5djSk", "hLQl3WQQoQ0", "sJXZ9Dok7u8", "YQHsXMglC9A",
+										"qN4ooNx77u0", "iWZmdoY1aTE", "ekzHIouo8Q4"
+									]
+									var happy = ["aJOTlE1K90k", "ft4jcPSLJfY", "k2qgadSvNyU", "JGwWNGJdvx8", "FM7MFYoylVs", "zDo0H8Fm7d0",
+										"dT2owtxkU8k", "PMivT7MJ41M", "qPTfXwPf_HM"
+									]
+
+									var max = 4
+
+									var random = Math.floor(Math.random() * Math.floor(max))
+									console.log(random)
+
+									var output = data[0].faceAttributes.emotion
+									var value = output.anger
+									var temp_key = '';
+
+									for (var key in output) {
+										if (output[key] > value) {
+											value = output[key]
+											temp_key = key;
+										}
+									}
+
+
+									console.log(temp_key + ' ' + value)
+									alert('You seems ' + temp_key)
+
+									document.getElementById('mood').innterHTML = temp_key;
+
+									//messages.push("----------");
+
+									if (temp_key == "neutral") {
+
+										var i
+										//var txt = sad[random] + '\n'
+										//messages.push("You seems neutral");
+
+										for (i = random; i < random + 5; ++i) {
+											//txt = txt + sad[i] + '\n';
+											messages.push(sad[i]);
+										}
+										//$("#results").text(txt);
+									} else if (temp_key == "happiness") {
+										var i
+										//var txt = happy[random] + '\n'
+
+										for (i = random; i < random + 5; ++i) {
+											//txt = txt + happy[i] + '\n';
+											messages.push(happy[i]);
+										}
+										//$("#results").text(txt);
+
+									} else {
+										//$("#results").text("Not found");
+										messages.push("Can't get your mood");
+
+									}
+
+									//console.log(messages)
+
+
+									for (var i = 0; i < messages.length; ++i) {
+										var a = document.createElement('a');
+										a.href = 'https://www.youtube.com/watch?v=' + messages[i];
+										a.target = '_blank';
+										a.appendChild(document.createTextNode(a.href));
+										document.getElementById('message').appendChild(a);
+										document.getElementById('message').appendChild(document.createElement('br'));
+										document.getElementById('message').appendChild(document.createElement('br'));
+									}
+
+									messages = []
+
+
+
+								})
+								.fail(function (err) {
+									$("#results").text(JSON.stringify(err));
+								})
+						});
+				}
+			});
+		};
+	</script>
+
+</body>
+
+</html>
+{% endblock %}
